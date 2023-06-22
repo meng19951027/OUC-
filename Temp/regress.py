@@ -1,3 +1,4 @@
+# 支持向量回归--https://blog.csdn.net/qq_41076797/article/details/101037721
 # 导入库
 import numpy as np  # numpy库
 from sklearn.linear_model import BayesianRidge, LinearRegression, ElasticNet  # 批量导入要实现的回归算法
