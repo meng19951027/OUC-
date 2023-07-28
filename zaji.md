@@ -1,3 +1,4 @@
+```
 def Curve_Fitting(x,y,deg):
     parameter = np.polyfit(x, y, deg)    #拟合deg次多项式
     p = np.poly1d(parameter)             #拟合deg次多项式
@@ -22,3 +23,4 @@ def Curve_Fitting(x,y,deg):
     plt.show()
 #    print('曲线方程为：',aa)
 #    print('     r^2为：',round(np.corrcoef(y, p(x))[0,1]**2,2))
+```
