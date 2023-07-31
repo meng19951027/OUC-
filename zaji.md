@@ -24,3 +24,45 @@ def Curve_Fitting(x,y,deg):
 #    print('曲线方程为：',aa)
 #    print('     r^2为：',round(np.corrcoef(y, p(x))[0,1]**2,2))
 ```
+
+
+
+
+# 绘制流向图一维
+```
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import FancyArrowPatch
+
+# 模拟时间点的水流流向数据（假设有5个时间点的数据）
+time_points = [1, 2, 3, 4, 5]
+flow_directions = [45, 180, 90, 135, 270]  # 流向用0~360之间的度数表示，例如：0表示向右，90表示向上，180表示向左，270表示向下
+
+# 转换度数为弧度
+flow_angles_rad = np.deg2rad(flow_directions)
+
+# 设置图形大小
+plt.figure(figsize=(10, 2))
+
+# 绘制箭头
+for i in range(len(time_points)):
+    arrow_length = 0.8
+    dx = arrow_length * np.cos(flow_angles_rad[i])
+    dy = arrow_length * np.sin(flow_angles_rad[i])
+    arrow = FancyArrowPatch((i, 0), (i + dx, dy), arrowstyle='->', mutation_scale=20, linewidth=2, color='blue')
+    plt.gca().add_patch(arrow)
+
+# 设置坐标轴
+plt.xlim(0, len(time_points))
+plt.ylim(-1.5, 1.5)
+
+# 设置坐标轴标签
+plt.xlabel('时间点')
+plt.ylabel('流向')
+
+# 设置标题
+plt.title('随时间变化的水流流向图')
+
+# 显示图形
+plt.show()
+```
